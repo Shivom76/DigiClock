@@ -1,8 +1,10 @@
 require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
 const connectDB = require("./config/db");
 const sessionRoutes = require("./routes/sessionRoutes");
+const authRoutes=require("./routes/authRoutes.js");
 const { errorHandler, notFound } = require("./middleware/errorHandler");
 
 const app = express();
@@ -21,6 +23,7 @@ app.get("/api/health", (req, res) => {
 
 // Backend API Module routes
 app.use("/api/sessions", sessionRoutes);
+app.use("/api/auth",authRoutes);
 
 // 404 + error handling
 app.use(notFound);
@@ -30,3 +33,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
