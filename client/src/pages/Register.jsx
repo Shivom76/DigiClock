@@ -5,7 +5,7 @@ import { registerUser } from "../services/api.js";
 // POST /api/auth/register — the server hashes the password with bcrypt
 // (salt + hash) before it's ever written to MongoDB; the plaintext value
 // only exists for the duration of this request.
-const Register = () => {
+const Register = ({ setOperator }) => {
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -29,6 +29,9 @@ const Register = () => {
       const { data } = await registerUser(form);
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
+      if (setOperator) {
+        setOperator(data.user);
+      }
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Couldn't create your account.");
