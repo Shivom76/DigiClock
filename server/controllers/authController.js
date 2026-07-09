@@ -1,6 +1,6 @@
 const User = require("../models/User");
 const { generateToken } = require("../utils/generateToken");
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
 
 // REGISTER — creates a new user. Password hashing happens automatically
 // in the User model's pre("save") hook (bcrypt salt + hash), so the

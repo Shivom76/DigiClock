@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
-import Navbar from "./components/Navbar.jsx"; // 1. Import your Navbar component
+import Navbar from "./components/Navbar.jsx";
 
 function App() {
   const [operator, setOperator] = useState(() => {
@@ -17,7 +17,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* 2. Place it here! Pass the name (operator.name) and setOperator handler down */}
       <Navbar userName={operator?.name} setOperator={setOperator} />
 
       <Routes>
