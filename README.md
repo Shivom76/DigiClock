@@ -2,7 +2,7 @@
 # DigiClock
 A digital clock as a web app that includes a digital clock and a stopwatch in which a session can be stored, through a database.
 =======
-# Chronolog — Digital Clock & Stopwatch
+# DigiClock — Digital Clock & Stopwatch
 
 Implementation of the project described in Chapter 4: a React/Tailwind
 frontend, an Express/Mongoose backend, and MongoDB for session storage.
