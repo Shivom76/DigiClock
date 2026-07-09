@@ -1,10 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({ operator }) => {
+const Navbar = ({ userName }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem("operatorName");
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
     navigate("/login");
   };
 
@@ -13,13 +14,13 @@ const Navbar = ({ operator }) => {
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-amber" />
-          <span className="font-mono font-semibold tracking-wide text-ivory">DigiClock</span>
+          <span className="font-mono font-semibold tracking-wide text-ivory">Chronolog</span>
         </Link>
 
-        {operator && (
+        {userName && (
           <div className="flex items-center gap-4">
             <span className="text-sm text-muted">
-              Operator: <span className="text-ivory">{operator}</span>
+              Signed in as <span className="text-ivory">{userName}</span>
             </span>
             <button
               onClick={handleLogout}
