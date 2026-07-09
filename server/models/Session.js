@@ -14,6 +14,13 @@ const LapSchema = new mongoose.Schema(
 // Session ID (Mongo's own _id), Duration, Lap Times, Notes, Date & Time.
 const SessionSchema = new mongoose.Schema(
   {
+    user: {
+      // Ties each session to the authenticated user who saved it, so the
+      // API can scope reads/writes to req.user (see sessionController.js).
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+      required: true
+    },
     duration: {
       type: Number, // total elapsed time in milliseconds
       required: true,
