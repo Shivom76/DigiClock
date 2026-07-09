@@ -7,12 +7,12 @@ const {
   updateSession,
   deleteSession
 } = require("../controllers/sessionController");
-const { protect } = require("../middleware/authMiddleware");
-const auth = require("../middleware/authMiddleware");
+
+//  FIX: Add explicit relative file extensions to force Node to break the case cache
+const { protect } = require("./../middleware/authMiddleware.js");
+const auth = require("./../middleware/authMiddleware.js");
 
 // Backend API Module (4.1): CRUD endpoints for stopwatch sessions & laps.
-// `protect` runs first on every route here, so all of this is
-// authenticated — no token, no access.
 router.use(protect);
 
 router.route("/").post(createSession).get(getSessions);
