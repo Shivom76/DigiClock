@@ -42,12 +42,13 @@ const Dashboard = () => {
       <Navbar operator={operator} />
 
       <main className="max-w-5xl mx-auto px-6 py-10 grid gap-8">
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* <div className="grid md:grid-cols-2 gap-6"> */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-5xl mx-auto px-4">
           <Clock />
           <Stopwatch onSessionSaved={loadSessions} />
         </div>
 
-        <section>
+        {/* <section>
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xs tracking-[0.3em] uppercase text-muted">Session Log</h2>
             {sessions.length > 0 && (
@@ -69,7 +70,7 @@ const Dashboard = () => {
               <SessionCard key={session._id} session={session} onDelete={handleDelete} />
             ))}
           </div>
-        </section>
+        </section> */}
       </main>
     </div>
   );

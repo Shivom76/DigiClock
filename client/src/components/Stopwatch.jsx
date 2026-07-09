@@ -88,7 +88,7 @@ const Stopwatch = ({ onSessionSaved }) => {
   };
 
   return (
-    <div className="rounded-2xl bg-graphite-800 shadow-bezel p-8">
+    <div className="rounded-2xl bg-graphite-800 shadow-bezel p-8 max-w-full overflow-hidden">
       <div className="flex items-center justify-between mb-6">
         <span className="text-xs tracking-[0.3em] uppercase text-muted">Stopwatch</span>
         <span
@@ -99,7 +99,9 @@ const Stopwatch = ({ onSessionSaved }) => {
         />
       </div>
 
-      <div className="font-mono tabular text-6xl md:text-7xl font-semibold text-ivory text-center tracking-tight">
+      <div className="font-mono tabular-nums font-semibold text-ivory text-center tracking-tight select-none"
+      style={{ fontSize: "clamp(2rem, 5.2vw, 3.8rem)" }}
+      >
         {formatTime(elapsed)}
       </div>
 
@@ -135,7 +137,7 @@ const Stopwatch = ({ onSessionSaved }) => {
       </div>
 
       {laps.length > 0 && (
-        <div className="mt-6 max-h-48 overflow-y-auto rounded-xl border border-graphite-700">
+        <div className="mt-6 max-h-48 overflow-y-auto rounded-xl border pr-2 border-graphite-700">
           <table className="w-full text-sm">
             <thead className="text-muted text-xs uppercase tracking-wider sticky top-0 bg-graphite-800">
               <tr>
@@ -157,7 +159,7 @@ const Stopwatch = ({ onSessionSaved }) => {
         </div>
       )}
 
-      <div className="mt-6 flex flex-col md:flex-row gap-3">
+      {/* <div className="mt-6 flex flex-col md:flex-row gap-3">
         <input
           type="text"
           value={notes}
@@ -172,7 +174,7 @@ const Stopwatch = ({ onSessionSaved }) => {
         >
           {saving ? "Saving…" : "Save Session"}
         </button>
-      </div>
+      </div> */}
 
       {feedback && <p className="mt-3 text-sm text-muted">{feedback}</p>}
     </div>

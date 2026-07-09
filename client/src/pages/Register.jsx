@@ -45,7 +45,7 @@ const Register = () => {
       >
         <div className="flex items-center gap-2 mb-1">
           <span className="h-2 w-2 rounded-full bg-amber" />
-          <span className="font-mono font-semibold tracking-wide text-ivory">Chronolog</span>
+          <span className="font-mono font-semibold tracking-wide text-ivory">DigiClock</span>
         </div>
         <p className="text-sm text-muted mb-6">Create an account to start timing.</p>
 

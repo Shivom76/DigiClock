@@ -3,29 +3,30 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.jsx";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register.jsx";
+import Navbar from "./components/Navbar.jsx"; // 1. Import your Navbar component
 
 function App() {
-  // 1. CHK: Initialize state by safely reading and parsing the "user" object
   const [operator, setOperator] = useState(() => {
     const savedUser = localStorage.getItem("user");
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
-  // Wrapper component that protects private routes
   const RequireOperator = ({ children }) => {
     return operator ? children : <Navigate to="/login" replace />;
   };
 
   return (
     <BrowserRouter>
+      {/* 2. Place it here! Pass the name (operator.name) and setOperator handler down */}
+      <Navbar userName={operator?.name} setOperator={setOperator} />
+
       <Routes>
-        {/* Pass down setOperator to Login/Register */}
         <Route path="/login" element={<Login setOperator={setOperator} />} />
         <Route path="/register" element={<Register setOperator={setOperator} />} />
         
         <Route
           path="/"
-          element={
+          element = {
             <RequireOperator>
               <Dashboard setOperator={setOperator} />
             </RequireOperator>

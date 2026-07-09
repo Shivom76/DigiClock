@@ -1,11 +1,15 @@
 import { Link, useNavigate } from "react-router-dom";
 
-const Navbar = ({ userName }) => {
+const Navbar = ({ userName,setOperator }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+
+    if (setOperator){
+      setOperator(null)
+    }
     navigate("/login");
   };
 
