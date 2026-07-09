@@ -39,7 +39,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen">
-      <Navbar operator={operator} />
+      {/* <Navbar operator={operator} /> */}
 
       <main className="max-w-5xl mx-auto px-6 py-10 grid gap-8">
         {/* <div className="grid md:grid-cols-2 gap-6"> */}
