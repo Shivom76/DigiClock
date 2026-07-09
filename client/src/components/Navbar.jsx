@@ -14,7 +14,7 @@ const Navbar = ({ userName }) => {
       <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
           <span className="h-2 w-2 rounded-full bg-amber" />
-          <span className="font-mono font-semibold tracking-wide text-ivory">Chronolog</span>
+          <span className="font-mono font-semibold tracking-wide text-ivory">DigiClock</span>
         </Link>
 
         {userName && (

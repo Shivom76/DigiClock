@@ -6,7 +6,7 @@ import { loginUser } from "../services/api.js";
 // checks the password with bcrypt.compare() against the stored hash and
 // returns a signed JWT. The token is stored locally and attached to every
 // subsequent request by the interceptor in services/api.js.
-const Login = () => {
+const Login = ({setOperator}) => {
   const [form, setForm] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
@@ -24,6 +24,10 @@ const Login = () => {
       const { data } = await loginUser(form);
       localStorage.setItem("token", data.token);
       localStorage.setItem("user", JSON.stringify(data.user));
+
+      if (setOperator){
+        setOperator(data.user);
+      }
       navigate("/");
     } catch (err) {
       setError(err.response?.data?.message || "Couldn't log in — check your details.");
@@ -40,7 +44,7 @@ const Login = () => {
       >
         <div className="flex items-center gap-2 mb-1">
           <span className="h-2 w-2 rounded-full bg-amber" />
-          <span className="font-mono font-semibold tracking-wide text-ivory">Chronolog</span>
+          <span className="font-mono font-semibold tracking-wide text-ivory">DigiClock</span>
         </div>
         <p className="text-sm text-muted mb-6">Log in to see your saved sessions.</p>
 
